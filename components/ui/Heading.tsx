@@ -28,11 +28,10 @@ const headingVariants = cva("font-display font-bold tracking-tight text-white", 
   },
 });
 
-export interface HeadingProps
-  extends Omit<React.HTMLAttributes<HTMLHeadingElement>, 'color'>,
-    VariantProps<typeof headingVariants> {
-  as?: HeadingLevel;
-}
+export type HeadingProps = React.HTMLAttributes<HTMLHeadingElement> &
+  VariantProps<typeof headingVariants> & {
+    as?: HeadingLevel;
+  };
 
 const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
   ({ as: Tag = "h2", size, color, className, ...props }, ref) => (

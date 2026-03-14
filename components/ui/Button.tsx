@@ -64,10 +64,7 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps
-  extends Omit<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    'color' | 'onDrag' | 'onDragStart' | 'onDragEnd' | 'onDragCapture' | 'onDragEnter' | 'onDragLeave' | 'onDragOver' | 'onAnimationStart' | 'onAnimationEnd' | 'onAnimationIteration'
-  >,
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   loading?: boolean;
@@ -99,7 +96,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         transition={{ duration: 0.15, ease: "easeOut" }}
         className={cn(buttonVariants({ variant, size, fullWidth, className }))}
         disabled={disabled || loading}
-        {...(props as React.ComponentProps<typeof motion.button>)}
+        onClick={props.onClick as React.MouseEventHandler<HTMLButtonElement>}
+        type={props.type ?? "button"}
+        aria-label={props["aria-label"]}
+        data-testid={props["data-testid" as keyof typeof props] as string}
       >
         {loading && (
           <svg
