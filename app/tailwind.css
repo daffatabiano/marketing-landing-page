@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+/* Theme Configuration */
+@theme {
+  /* Colors */
+  --color-brand-50: #fefce8;
+  --color-brand-100: #fef9c3;
+  --color-brand-200: #fef08a;
+  --color-brand-300: #fde047;
+  --color-brand-400: #facc15;
+  --color-brand-500: #eab308;
+  --color-brand-600: #ca8a04;
+  --color-brand-700: #a16207;
+  --color-brand-800: #854d0e;
+  --color-brand-900: #713f12;
+
+  --color-surface-50: #f8fafc;
+  --color-surface-100: #f1f5f9;
+  --color-surface-200: #e2e8f0;
+  --color-surface-300: #cbd5e1;
+  --color-surface-400: #94a3b8;
+  --color-surface-500: #64748b;
+  --color-surface-600: #475569;
+  --color-surface-700: #334155;
+  --color-surface-800: #1e293b;
+  --color-surface-900: #0f172a;
+  --color-surface-950: #020617;
+
+  /* Font Families */
+  --font-family-display: var(--font-playfair), Georgia, serif;
+  --font-family-body: var(--font-dm-sans), system-ui, sans-serif;
+  --font-family-mono: var(--font-jetbrains), Consolas, monospace;
+
+  /* Custom Font Sizes */
+  --font-size-2xs: 0.625rem;
+  --line-height-2xs: 1rem;
+  
+  --font-size-display-2xl: 4.5rem;
+  --line-height-display-2xl: 1.1;
+  --letter-spacing-display-2xl: -0.02em;
+  
+  --font-size-display-xl: 3.75rem;
+  --line-height-display-xl: 1.1;
+  --letter-spacing-display-xl: -0.02em;
+  
+  --font-size-display-lg: 3rem;
+  --line-height-display-lg: 1.15;
+  --letter-spacing-display-lg: -0.02em;
+  
+  --font-size-display-md: 2.25rem;
+  --line-height-display-md: 1.2;
+  --letter-spacing-display-md: -0.015em;
+  
+  --font-size-display-sm: 1.875rem;
+  --line-height-display-sm: 1.25;
+  --letter-spacing-display-sm: -0.01em;
+
+  /* Spacing */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-30: 7.5rem;
+  --spacing-section: 6rem;
+  --spacing-section-lg: 10rem;
+
+  /* Border Radius */
+  --border-radius-4xl: 2rem;
+  --border-radius-5xl: 2.5rem;
+
+  /* Shadows */
+  --shadow-glow: 0 0 40px rgba(234, 179, 8, 0.15);
+  --shadow-glow-lg: 0 0 80px rgba(234, 179, 8, 0.2);
+  --shadow-inner-glow: inset 0 0 40px rgba(234, 179, 8, 0.05);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4), 0 1px 4px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 8px 48px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+  /* Backdrop Blur */
+  --backdrop-blur-xs: 2px;
+}
+
+/* Animations - Need to be in keyframes */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Custom Animation Utilities */
+@supports (animation: fadeIn 0.6s ease-out forwards) {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+}
+
+/* Custom Background Patterns */
+.bg-noise {
+  background-image: url('/textures/noise.svg');
+}
+
+.bg-grid-pattern {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
