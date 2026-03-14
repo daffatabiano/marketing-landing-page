@@ -1,4 +1,27 @@
-export const siteConfig = {
+import type { Metadata } from "next";
+
+interface SiteConfigSocials {
+  readonly twitter: string;
+  readonly github: string;
+  readonly linkedin: string;
+}
+
+interface SiteConfigBase {
+  readonly name: string;
+  readonly tagline: string;
+  readonly description: string;
+  readonly url: string;
+  readonly ogImage: string;
+  readonly creator: string;
+  readonly socials: SiteConfigSocials;
+}
+
+export interface SiteConfig extends SiteConfigBase {
+  keywords: string[];
+  authors: Array<{ name: string; url: string }>;
+}
+
+export const siteConfig: SiteConfig = {
   name: "Marketing Landing",
   tagline: "Ship Faster. Scale Smarter.",
   description:
@@ -24,6 +47,4 @@ export const siteConfig = {
     github: "https://github.com/daffatabiano",
     linkedin: "https://linkedin.com/in/daffatabiano",
   },
-} as const;
-
-export type SiteConfig = typeof siteConfig;
+};

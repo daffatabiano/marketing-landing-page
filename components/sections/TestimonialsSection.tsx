@@ -8,7 +8,7 @@ import { slideUp, staggerContainer, viewportConfig } from "@/lib/animations";
 const testimonials = [
   {
     id: "1",
-    quote: "Velox cut our deployment pipeline from 45 minutes to under 30 seconds. Our team's velocity doubled in the first month. It's not just a tool — it's a competitive advantage.",
+    quote: "Velox cut our deployment pipeline from 45 minutes to under 30 seconds. Our team's velocity doubled in the first month.",
     author: { name: "Sarah Chen", title: "VP of Engineering", company: "Meridian Labs", initials: "SC", color: "bg-violet-500" },
     rating: 5,
     featured: true,
